@@ -1,0 +1,15 @@
+{"botOwner":"731797937713184859",
+ "botPrefix":".",
+ "botToken":"NzkyMDAwMDM0MzU4MTY1NTIz.X-XVgg.0Bud_NCP6fWYYlCj1B93Y11OF4A",
+ "guildID":"683392291615801431",
+ "botseskanali":"737254964610465882",
+ "logChannelID":"745923213611237387",
+ "boosterRole":"743208512577863712",
+ "jailRole":"727793459129352222",
+ "whitelist":["724916141645889558"],
+ "channelGuard":true,
+ "serverGuard":true,
+ "botGuard":true,
+ "banGuard":true,
+ "kickGuard":true
+}
