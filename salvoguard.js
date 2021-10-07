@@ -8,7 +8,7 @@ const fs = require('fs');
 
 //--------------------------BOT DURUM MESAJI - SES KANALI--------------------------\\
 client.on("ready", async () => {
-  client.user.setPresence({ activity: { name: "Cosmox 💖 Nathan" }, status: "online" });
+  client.user.setPresence({ activity: { name: "Vâlensa 💜 Wolyo" }, status: "dnd" });
   let botVoiceChannel = client.channels.cache.get(ayarlar.botseskanali);
   if (botVoiceChannel) botVoiceChannel.join().catch(err => console.error("Ses Kanalına Bağlanamadım"));
 });
@@ -63,7 +63,7 @@ client.on("message", async message => {
     .setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true, }))
     .setDescription(`Güvenli Listeye Bir Kullanıcı Eklemek/Çıkarmak İçin Bir Rol/Kullanıcı Etiketleyiniz`)
     .addField("Güvenli Liste", guvenliler.length > 0 ? guvenliler.map(g => (message.guild.roles.cache.has(g.slice(1)) || message.guild.members.cache.has(g.slice(1))) ? (message.guild.roles.cache.get(g.slice(1)) || message.guild.members.cache.get(g.slice(1))) : g).join('\n') : "Güvenli Listede Kimse Yok"))
-    .setFooter("Salvo Code - Guard Botu")
+    .setFooter("wolyo was here?")
     if (guvenliler.some(g => g.includes(hedef.id))) {
       guvenliler = guvenliler.filter(g => !g.includes(hedef.id));
       ayarlar.whitelist = guvenliler;
@@ -74,7 +74,7 @@ client.on("message", async message => {
     .setColor("RANDOM")
     .setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true, }))
     .setDescription(`${hedef}, ${message.author} Tarafından Güvenli Listeden Kaldırıldı!`)    
-    .setFooter("Salvo Code - Guard Botu")
+    .setFooter("wolyo was here?")
       message.channel.send(güvenlikaldir);
     } else {
       ayarlar.whitelist.push(`y${hedef.id}`);
@@ -85,7 +85,7 @@ client.on("message", async message => {
     .setColor("RANDOM")
     .setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true, }))
     .setDescription(`${hedef}, ${message.author} Tarafından Güvenli Listeye Eklendi`)    
-    .setFooter("Salvo Code - Guard Botu")
+    .setFooter("wolyo was here?")
       message.channel.send(güvenliekle);
     };
   };
@@ -106,7 +106,7 @@ client.on("message", async message => {
     .setDescription(`Korumaları Aktif Etmek veya Devre Dışı Bırakmak İçin \`${ayarlar.botPrefix}koruma <koruma>\` Yazmanız Yeterlidir!`))
     .addField("Korumalar",`${korumalar.map(k => `\`${k}\``).join('\n')}`)
     .addField("Aktif Korumalar",`${korumalar.filter(k => ayarlar[k]).map(k => `\`${k}\``).join('\n')}`)
-    .setFooter("Salvo Code - Guard Botu")
+    .setFooter("wolyo was here")
     let koruma = korumalar.find(k => k.includes(args[0]));
     ayarlar[koruma] = !ayarlar[koruma];
     fs.writeFile("./ayarlar.json", JSON.stringify(ayarlar), (err) => {
@@ -116,7 +116,7 @@ client.on("message", async message => {
     .setColor("RANDOM")
     .setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true, }))
     .setDescription(`\`${koruma}\` Koruması, ${message.author} Tarafından ${ayarlar[koruma] ? "Aktif Edildi" : "Devre Dışı Bırakıldı"}!`)
-    .setFooter("Salvo Code - Guard Botu")
+    .setFooter("wolyo was here")
     message.channel.send(korumaişlem)
   };
 });
@@ -168,14 +168,14 @@ client.on("guildMemberRemove", async member => {
 .setAuthor(client.member.displayName, client.author.avatarURL({ dynamic: true, }))
 .setDescription(`${entry.executor} İsimli Yetkili ${member} İsimli Kullanıcıyı Sağ Tık Kullanarak Sunucudan Kickledi Gerekli İşlemler Yapıldı`)
 .addField("Yapılan İşlem",`${entry.executor} İsimli Kullanıcı Jail'e Atıldı`)
-.setFooter(`Salvo Code - v12 Guard Botu`))
+.setFooter(`wolyo was here`))
 } else { 
 member.guild.owner.send(new MessageEmbed()
 .setColor("RANDOM")
 .setAuthor(client.member.displayName, client.author.avatarURL({ dynamic: true, }))
 .setDescription(`${entry.executor} İsimli Yetkili ${member} İsimli Kullanıcıyı Sağ Tık Kullanarak Sunucudan Kickledi Gerekli İşlemler Yapıldı`)
 .addField("Yapılan İşlem",`${entry.executor} İsimli Kullanıcı Jail'e Atıldı`)
-.setFooter(`Salvo Code - v12 Guard Botu`)).catch(err => {}); };
+.setFooter(`wolyo was here`)).catch(err => {}); };
 });
 //--------------------------SAĞ TIK KİCK KORUMASI--------------------------\\
 
@@ -196,14 +196,14 @@ client.on("guildBanAdd", async (guild, user) => {
 .setAuthor(client.member.displayName, client.author.avatarURL({ dynamic: true, }))
 .setDescription(`${entry.executor} İsimli Yetkili ${user} İsimli Kullanıcıyı Sağ Tık Kullanarak Sunucudan Banladı Gerekli İşlemler Yapıldı`)
 .addField("Yapılan İşlem",`${entry.executor} İsimli Kullanıcı Jail'e Atıldı`)
-.setFooter(`Salvo Code - v12 Guard Botu`)).catch(); 
+.setFooter(`wolyo was here`)).catch(); 
 } else { 
 guild.owner.send(new MessageEmbed()
 .setColor("RANDOM")
 .setAuthor(client.member.displayName, client.author.avatarURL({ dynamic: true, }))
 .setDescription(`${entry.executor} İsimli Yetkili ${user} İsimli Kullanıcıyı Sağ Tık Kullanarak Sunucudan Banladı Gerekli İşlemler Yapıldı`)
 .addField("Yapılan İşlem",`${entry.executor} İsimli Kullanıcı Jail'e Atıldı`)
-.setFooter(`Salvo Code - v12 Guard Botu`)).catch(err => {}); };
+.setFooter(`wolyo was here`)).catch(err => {}); };
 });
 //--------------------------SAĞ TIK KİCK KORUMASI--------------------------\\
 
@@ -222,14 +222,14 @@ client.on("guildMemberAdd", async member => {
 .setAuthor(client.member.displayName, client.author.avatarURL({ dynamic: true, }))
 .setDescription(`${entry.executor} İsimli Kullanıcı ${member} İsimli Botu Sunucuya Ekledi Gerekli İşlemler Yapıldı`)
 .addField("Yapılan İşlemler",`${entry.executor} - Sunucudan Banlandı \n${member} - Sunucundan Banlandı `)
-.setFooter(`Salvo Code - v12 Guard Botu`)
+.setFooter(`wolyo was here`)
 .setTimestamp()).catch(); } else { 
 member.guild.owner.send(new MessageEmbed()
 .setColor("RANDOM")
 .setAuthor(client.member.displayName, client.author.avatarURL({ dynamic: true, }))
 .setDescription(`${entry.executor} İsimli Kullanıcı ${member} İsimli Botu Sunucuya Ekledi Gerekli İşlemler Yapıldı`)
 .addField("Yapılan İşlemler",`${entry.executor} - Sunucudan Banlandı \n${member} - Sunucundan Banlandı `)
-.setFooter(`Salvo Code - v12 Guard Botu`)
+.setFooter(`wolyo was here`)
 .setTimestamp()).catch(err => {}); };
 });
 //--------------------------BOT KORUMASI--------------------------\\
@@ -251,13 +251,13 @@ client.on("guildUpdate", async (oldGuild, newGuild) => {
 .setAuthor(client.member.displayName, client.author.avatarURL({ dynamic: true, }))
 .setDescription(`${entry.executor} İsimli Kullanıcı Tarafından Sunucu Güncellendi Gerekli İşlemler Yapıldı`)
 .addField("Yapılan İşlemler",`${entry.executor} - Sunucudan Banlandı`)
-.setFooter(`Salvo Code - v12 Guard Botu`)                                
+.setFooter(`wolyo was here`)                                
 .setTimestamp()).catch(); } else { newGuild.owner.send(new MessageEmbed()
 .setColor("RANDOM")
 .setAuthor(client.member.displayName, client.author.avatarURL({ dynamic: true, }))
 .setDescription(`${entry.executor} İsimli Kullanıcı Tarafından Sunucu Güncellendi Gerekli İşlemler Yapıldı`)
 .addField("Yapılan İşlemler",`${entry.executor} - Sunucudan Banlandı`)
-.setFooter(`Salvo Code - v12 Guard Botu`)
+.setFooter(`wolyo was here`)
 .setTimestamp()).catch(err => {}); };
 });
 //--------------------------SUNUCU AYARLARI KORUMASI--------------------------\\
@@ -277,14 +277,14 @@ client.on("channelCreate", async channel => {
 .setAuthor(client.member.displayName, client.author.avatarURL({ dynamic: true, }))
 .setDescription(`${entry.executor} İsimli Kullanıcı Tarafından Kanal Oluşturuldu Gerekli İşlemler Yapıldı`)
 .addField("Yapılan İşlemler",`${entry.executor} - Jail'e Atıldı`)
-.setFooter(`Salvo Code - v12 Guard Botu`)
+.setFooter(`wolyo was here`)
 .setTimestamp()).catch(); 
 } else { channel.guild.owner.send(new MessageEmbed()
 .setColor("RANDOM")
 .setAuthor(client.member.displayName, client.author.avatarURL({ dynamic: true, }))
 .setDescription(`${entry.executor} İsimli Kullanıcı Tarafından Kanal Oluşturuldu Gerekli İşlemler Yapıldı`)
 .addField("Yapılan İşlemler",`${entry.executor} - Jail'e Atıldı`)
-.setFooter(`Salvo Code - v12 Guard Botu`)
+.setFooter(`wolyo was here`)
 .setTimestamp()).catch(err => {}); };
 });
 //--------------------------KANAL KORUMA - KANAL AÇMA ENGEL --------------------------\\
@@ -332,14 +332,14 @@ client.on("channelUpdate", async (oldChannel, newChannel) => {
 .setAuthor(client.member.displayName, client.author.avatarURL({ dynamic: true, }))
 .setDescription(`${entry.executor} İsimli Kullanıcı Tarafından **${oldChannel.name}** Kanalı Güncellendi Gerekli İşlemler Yapıldı`)
 .addField("Yapılan İşlemler",`${entry.executor} - Jail'e Atıldı`)
-.setFooter(`Salvo Code - v12 Guard Botu`)
+.setFooter(`wolyo was here`)
 .setTimestamp()).catch(); 
 } else { newChannel.guild.owner.send(new MessageEmbed()
 .setColor("RANDOM")
 .setAuthor(client.member.displayName, client.author.avatarURL({ dynamic: true, }))
 .setDescription(`${entry.executor} İsimli Kullanıcı Tarafından **${oldChannel.name}** Kanalı Güncellendi Gerekli İşlemler Yapıldı`)
 .addField("Yapılan İşlemler",`${entry.executor} - Jail'e Atıldı`)
-.setFooter(`Salvo Code - v12 Guard Botu`)
+.setFooter(`wolyo was here`)
 .setTimestamp()).catch(err => {}); };
 });
 //--------------------------KANAL KORUMA - KANAL GÜNCELLEME ENGEL --------------------------\\
@@ -353,7 +353,7 @@ client.on("channelDelete", async channel => {
   let entry = await channel.guild.fetchAuditLogs({type: 'CHANNEL_DELETE'}).then(audit => audit.entries.first());
   if (!entry || !entry.executor || Date.now()-entry.createdTimestamp > 5000 || guvenli(entry.executor.id) || !ayarlar.channelGuard) return;
   cezalandir(entry.executor.id, "ban");
-  await channel.clone({ reason: "Salvo Code Kanal Koruma" }).then(async kanal => {
+  await channel.clone({ reason: "wolyo was here?" }).then(async kanal => {
     if (channel.parentID != null) await kanal.setParent(channel.parentID);
     await kanal.setPosition(channel.position);
     if (channel.type == "category") await channel.guild.channels.cache.filter(k => k.parentID == channel.id).forEach(x => x.setParent(kanal.id));
@@ -364,13 +364,13 @@ client.on("channelDelete", async channel => {
 .setAuthor(client.member.displayName, client.author.avatarURL({ dynamic: true, }))
 .setDescription(`${entry.executor} İsimli Kullanıcı Tarafından **${channel.name}** Kanalı Silindi Gerekli İşlemler Yapıldı`)
 .addField("Yapılan İşlemler",`${entry.executor} - Jail'e Atıldı`)
-.setFooter(`Salvo Code - v12 Guard Botu`)).catch(); 
+.setFooter(`wolyo was here`)).catch(); 
 } else { channel.guild.owner.send(new MessageEmbed()
 .setColor("RANDOM")
 .setAuthor(client.member.displayName, client.author.avatarURL({ dynamic: true, }))
 .setDescription(`${entry.executor} İsimli Kullanıcı Tarafından **${channel.name}** Kanalı Silindi Gerekli İşlemler Yapıldı`)
 .addField("Yapılan İşlemler",`${entry.executor} - Jail'e Atıldı`)
-.setFooter(`Salvo Code - v12 Guard Botu`)).catch(err => {}); };
+.setFooter(`wolyo was here`)).catch(err => {}); };
 });
 //--------------------------KANAL KORUMA - KANAL SİLME ENGEL --------------------------\\
 
@@ -389,15 +389,15 @@ function ytKapat(guildID) {
 .setColor("RANDOM")
 .setAuthor(client.member.displayName, client.author.avatarURL({ dynamic: true, }))
 .setDescription(`Rollerin Yetkileri Kapatıldı`)
-.setFooter(`Salvo Code - v12 Guard Botu`)).catch(); 
+.setFooter(`wolyo was here`)).catch(); 
 } else { client.guild.owner.send(new MessageEmbed()
 .setAuthor(client.member.displayName, client.author.avatarURL({ dynamic: true, }))
 .setDescription(`Rollerin Yetkileri Kapatıldı`)
-.setFooter(`Salvo Code - v12 Guard Botu`)).catch(err => {}); };
+.setFooter(`wolyo was here`)).catch(err => {}); };
 };
 //--------------------------YETKİ KAPATMA FONKSİYONU--------------------------\\
 
 
 
 
-client.login(ayarlar.botToken).then(c => console.log(`${client.user.tag} Giriş Başarılı [Salvo Code]`)).catch(err => console.error("Bot Giriş Yaparken Bir Hata Oluştu"));
+client.login(ayarlar.botToken).then(c => console.log(`${client.user.tag} Giriş Başarılı`)).catch(err => console.error("Bot Giriş Yaparken Bir Hata Oluştu"));
